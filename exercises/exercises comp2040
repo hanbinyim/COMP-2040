@@ -1,1 +1,65 @@
-exercise 1
+#exercise_1
+
+# Calculating area of rectangles
+length1 = 10
+width1 = 5
+area_rectangle1 = length1 * width1
+
+length2 = 15
+width2 = 7
+area_rectangle2 = length2 * width2
+
+# Calculating area of circles
+radius1 = 4
+area_circle1 = 3.14 * (radius1 ** 2)
+
+radius2 = 6
+area_circle2 = 3.14 * (radius2 ** 2)
+
+print("Area of first rectangle:", area_rectangle1)
+print("Area of second rectangle:", area_rectangle2)
+print("Area of first circle:", area_circle1)
+print("Area of second circle:", area_circle2)
+
+# Check for odd or even numbers in list 1
+numbers1 = [10, 15, 22, 29, 30]
+for num in numbers1:
+    if num % 2 == 0:
+        print(f"{num} is even.")
+    else:
+        print(f"{num} is odd.")
+
+# Check for odd or even numbers in list 2
+numbers2 = [1, 4, 7, 9, 12]
+for num in numbers2:
+    if num % 2 == 0:
+        print(f"{num} is even.")
+    else:
+        print(f"{num} is odd.")
+
+# Check for odd or even numbers in list 3
+numbers3 = [100, 150, 200]
+for num in numbers3:
+    if num % 2 == 0:
+        print(f"{num} is even.")
+    else:
+        print(f"{num} is odd.")
+
+        # Calculate discount for customer 1
+price1 = 100
+discount1 = 0.10
+final_price1 = price1 - (price1 * discount1)
+
+# Calculate discount for customer 2
+price2 = 250
+discount2 = 0.15
+final_price2 = price2 - (price2 * discount2)
+
+# Calculate discount for customer 3
+price3 = 50
+discount3 = 0.05
+final_price3 = price3 - (price3 * discount3)
+
+print(f"Final price for customer 1: ${final_price1}")
+print(f"Final price for customer 2: ${final_price2}")
+print(f"Final price for customer 3: ${final_price3}")
