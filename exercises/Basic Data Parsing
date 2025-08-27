@@ -1,0 +1,97 @@
+# input string
+data = " Name: John Doe ; Age : 25;  CITY: New York ; Occupation: Software Engineer "
+
+# expected output
+{
+  'name': 'John Doe',
+  'age': '25',
+  'city': 'New York',
+  'occupation': 'Software Engineer'
+}
+
+# input
+data = "Name: Alice, Age: 30, City: Los Angeles | Name: Bob, Age: 25, City: Chicago | Name: Charlie , Age: 35, City: New York"
+
+# expected output
+[
+    {'name': 'Alice', 'age': '30', 'city': 'Los Angeles'},
+    {'name': 'Bob', 'age': '25', 'city': 'Chicago'},
+    {'name': 'Charlie', 'age': '35', 'city': 'New York'}
+]
+
+# messy data string
+data = "product_name: Laptop, price = $999, brand - Dell ; product_name: Smartphone, price: $599 , brand = Samsung ; product_name - Tablet , price=299,brand : Apple"
+
+# expected output
+[
+    {'product_name': 'Laptop', 'price': '$999', 'brand': 'Dell'},
+    {'product_name': 'Smartphone', 'price': '$599', 'brand': 'Samsung'},
+    {'product_name': 'Tablet', 'price': '299', 'brand': 'Apple'}
+]
+
+# messy data string
+data = "employee_name: Sarah, department: HR, roles: recruiter, trainer | employee_name: Mike , department: Engineering , roles: developer, team lead | employee_name: Alice , department: HR , roles: recruiter"
+
+# expected output
+[
+    {
+        'employee_name': 'Sarah',
+        'department': 'HR',
+        'roles': ['recruiter', 'trainer']
+    },
+    {
+        'employee_name': 'Mike',
+        'department': 'Engineering',
+        'roles': ['developer', 'team lead']
+    },
+    {
+        'employee_name': 'Alice',
+        'department': 'HR',
+        'roles': ['recruiter']
+    }
+]
+
+# messy data string
+data = "device_id: 001, temp: 72, humidity: 45 | device_id: 002, temp: N/A, humidity: 50 | device_id: 003, temp: 68, humidity: N/A"
+
+# expected output
+[
+    {'device_id': '001', 'temp': 72, 'humidity': 45},
+    {'device_id': '002', 'temp': None, 'humidity': 50},
+    {'device_id': '003', 'temp': 68, 'humidity': None}
+]
+
+# messy data string
+data = "transaction_id:001, customer_name: Alice, item=Laptop, price: $999; transaction_id=002, customer_name: Bob, item - Smartphone, price= $599; transaction_id:003, item=Tablet, price:299, discount-10%; transaction_id=004, customer_name=Charlie, item: Headphones, discount=5%"
+
+# expected output
+[
+    {
+        'transaction_id': '001',
+        'customer_name': 'Alice',
+        'item': 'Laptop',
+        'price': '$999',
+        'discount': None
+    },
+    {
+        'transaction_id': '002',
+        'customer_name': 'Bob',
+        'item': 'Smartphone',
+        'price': '$599',
+        'discount': None
+    },
+    {
+        'transaction_id': '003',
+        'customer_name': None,
+        'item': 'Tablet',
+        'price': '299',
+        'discount': '10%'
+    },
+    {
+        'transaction_id': '004',
+        'customer_name': 'Charlie',
+        'item': 'Headphones',
+        'price': None,
+        'discount': '5%'
+    }
+]
