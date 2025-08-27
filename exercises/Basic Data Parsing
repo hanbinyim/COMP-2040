@@ -1,3 +1,10 @@
+Steps:
+Remove leading/trailing spaces from the entire string.
+Split the string into key-value pairs based on semicolons (`;`).
+Split each pair into key and value based on the colon (`:`).
+Strip extra spaces around the keys and values.
+Ensure all keys are lowercase for consistency.
+
 # input string
 data = " Name: John Doe ; Age : 25;  CITY: New York ; Occupation: Software Engineer "
 
@@ -9,6 +16,12 @@ data = " Name: John Doe ; Age : 25;  CITY: New York ; Occupation: Software Engin
   'occupation': 'Software Engineer'
 }
 
+Steps:
+Split the data for each person based on the pipe (|).
+For each person, split their attributes (e.g., name, age, city) based on commas.
+Clean up extra spaces and organize the data into a dictionary.
+Store all individual dictionaries in a list.
+
 # input
 data = "Name: Alice, Age: 30, City: Los Angeles | Name: Bob, Age: 25, City: Chicago | Name: Charlie , Age: 35, City: New York"
 
@@ -19,6 +32,12 @@ data = "Name: Alice, Age: 30, City: Los Angeles | Name: Bob, Age: 25, City: Chic
     {'name': 'Charlie', 'age': '35', 'city': 'New York'}
 ]
 
+Steps:
+Split the string into individual products based on the semicolon (`;`).
+For each product, use multiple separators (like `:`, `=`, and `-`) to extract key-value pairs.
+Clean up spaces and ensure keys are lowercase.
+Store each product's data in a dictionary, and put all dictionaries in a list.
+
 # messy data string
 data = "product_name: Laptop, price = $999, brand - Dell ; product_name: Smartphone, price: $599 , brand = Samsung ; product_name - Tablet , price=299,brand : Apple"
 
@@ -28,6 +47,13 @@ data = "product_name: Laptop, price = $999, brand - Dell ; product_name: Smartph
     {'product_name': 'Smartphone', 'price': '$599', 'brand': 'Samsung'},
     {'product_name': 'Tablet', 'price': '299', 'brand': 'Apple'}
 ]
+
+Steps:
+Split the data by employee based on the pipe (`|`).
+For each employee, extract key-value pairs like `employee_name`, `department`, and `roles`.
+Split the `roles` value into a list of roles.
+Organize the data into a dictionary where `roles` is a list for each employee.
+Store the dictionaries for each employee in a list.
 
 # messy data string
 data = "employee_name: Sarah, department: HR, roles: recruiter, trainer | employee_name: Mike , department: Engineering , roles: developer, team lead | employee_name: Alice , department: HR , roles: recruiter"
@@ -51,6 +77,13 @@ data = "employee_name: Sarah, department: HR, roles: recruiter, trainer | employ
     }
 ]
 
+Steps:
+Split the string by device using the pipe (|).
+For each device, extract key-value pairs like device_id, temp, and humidity.
+Replace any occurrences of N/A with None.
+Organize the data into a dictionary for each device.
+Store all device dictionaries in a list.
+
 # messy data string
 data = "device_id: 001, temp: 72, humidity: 45 | device_id: 002, temp: N/A, humidity: 50 | device_id: 003, temp: 68, humidity: N/A"
 
@@ -60,6 +93,13 @@ data = "device_id: 001, temp: 72, humidity: 45 | device_id: 002, temp: N/A, humi
     {'device_id': '002', 'temp': None, 'humidity': 50},
     {'device_id': '003', 'temp': 68, 'humidity': None}
 ]
+
+Steps:
+Split the data into individual transactions based on the semicolon (;).
+For each transaction, extract key-value pairs using multiple separators (:, =, and -).
+Handle missing keys by setting their values to None.
+Ensure the data is cleaned (e.g., removing extra spaces) and consistent (e.g., lowercase keys).
+Organize the cleaned data into a list of dictionaries, including all expected keys (transaction_id, customer_name, item, price, discount).
 
 # messy data string
 data = "transaction_id:001, customer_name: Alice, item=Laptop, price: $999; transaction_id=002, customer_name: Bob, item - Smartphone, price= $599; transaction_id:003, item=Tablet, price:299, discount-10%; transaction_id=004, customer_name=Charlie, item: Headphones, discount=5%"
