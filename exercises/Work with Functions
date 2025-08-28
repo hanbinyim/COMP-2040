@@ -22,6 +22,31 @@ print("Area of second rectangle:", area_rectangle2)
 print("Area of first circle:", area_circle1)
 print("Area of second circle:", area_circle2)
 
+# Refactored Code with Functions
+# Function to calculate the area of a rectangle
+
+def area_rectangle(length, width):
+    return length * width
+
+# Function to calculate the area of a circle
+def area_circle(radius):
+    return 3.14 * (radius ** 2)
+
+# Calculating area of rectangles
+area_rectangle1 = area_rectangle(10, 5)
+area_rectangle2 = area_rectangle(15, 7)
+
+# Calculating area of circles
+area_circle1 = area_circle(4)
+area_circle2 = area_circle(6)
+
+
+print("Area of first rectangle:", area_rectangle1)
+print("Area of second rectangle:", area_rectangle2)
+print("Area of first circle:", area_circle1)
+print("Area of second circle:", area_circle2)
+
+
 # Task: Identify the repeating logic and refactor the code to use a function that checks 
 # if a number is odd or even, and applies that function to any list of numbers.
 
