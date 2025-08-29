@@ -22,8 +22,7 @@ print("Area of second rectangle:", area_rectangle2)
 print("Area of first circle:", area_circle1)
 print("Area of second circle:", area_circle2)
 
-# Refactored Code with Functions
-# Function to calculate the area of a rectangle
+# Refactored Code 
 
 def area_rectangle(length, width):
     return length * width
@@ -74,6 +73,24 @@ for num in numbers3:
     else:
         print(f"{num} is odd.")
 
+# Refactored Code
+
+def check_odd_even(numbers):
+    for num in numbers:
+        if num % 2 == 0:
+            print(f"{num} is even.")
+        else:
+            print(f"{num} is odd.")
+
+# Now apply this function to any list of numbers
+numbers1 = [10, 15, 22, 29, 30]
+numbers2 = [1, 4, 7, 9, 12]
+numbers3 = [100, 150, 200]
+
+check_odd_even(numbers1)
+check_odd_even(numbers2)
+check_odd_even(numbers3)
+
 # Task: Refactor the code by creating a function that takes the price and discount as arguments and returns the final price. 
 # Use the function to calculate the final prices for each customer, eliminating redundant code.
 
@@ -91,6 +108,25 @@ final_price2 = price2 - (price2 * discount2)
 price3 = 50
 discount3 = 0.05
 final_price3 = price3 - (price3 * discount3)
+
+print(f"Final price for customer 1: ${final_price1}")
+print(f"Final price for customer 2: ${final_price2}")
+print(f"Final price for customer 3: ${final_price3}")
+
+# Refactored Code
+
+def calculate_final_price(price, discount):
+    return price - (price * discount)
+
+# Prices and discounts for each customer
+price1, discount1 = 100, 0.10
+price2, discount2 = 250, 0.15
+price3, discount3 = 50, 0.05
+
+# Calculate final prices using the function
+final_price1 = calculate_final_price(price1, discount1)
+final_price2 = calculate_final_price(price2, discount2)
+final_price3 = calculate_final_price(price3, discount3)
 
 print(f"Final price for customer 1: ${final_price1}")
 print(f"Final price for customer 2: ${final_price2}")
