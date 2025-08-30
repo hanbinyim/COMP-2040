@@ -1,47 +1,52 @@
-# Question 1: Basic Conditions
-#You are given a variable x with a value of 15. Write a Python program that checks if x is greater than 10, equal to 10, or less than 10, and prints an appropriate message for each case. Test your program with various values to x to ensure correct results for each case.
+# Solution for Question 1
+x = 15  
 
-# Your solution for Question 1
-x = 15
-# Write your conditions here
-# Question 2: Looping Over a List
-# You are given a list of numbers. Write a Python program that loops through the list and prints whether each number is even or odd.
+if x > 10:
+    print(f"{x} is greater than 10")
+elif x == 10:
+    print(f"{x} is equal to 10")
+else:
+    print(f"{x} is less than 10")
 
-# Your solution for Question 2
+
+# Solution for Question 2
 numbers = [10, 21, 32, 43, 54]
 
-# Write your loop here
-# Question 3: Finding Words in a String
-#You are given a sentence: "Python is fun and powerful". Write a Python program that checks whether the word "fun" or "boring" is in the sentence. Print different messages depending on whether the word is found or not. Be sure to test your program with different sentences to ensure correct results.
+for num in numbers:
+    if num % 2 == 0:
+        print(f"{num} is even")
+    else:
+        print(f"{num} is odd")
 
-# Your solution for Question 3
+# Solution for Question 3
 sentence = 'Python is fun and powerful'
 
-# Check for words 'fun' and 'boring'
-#Question 4: Counting Occurrences in a List
-#You are given a list of grades for students in a class:
+if "fun" in sentence:
+    print("The sentence contains the word 'fun'")
+elif "boring" in sentence:
+    print("The sentence contains the word 'boring'")
+else:
+    print("The sentence does not contain the words 'fun' or 'boring'")
 
+
+# Solution for Question 4
 grades = [85, 92, 78, 90, 92, 85, 92]
-# Write a program that counts how many times each grade appears in the list and prints the results.
 
-# Your solution for Question 4
-grades = [85, 92, 78, 90, 92, 85, 92]
+grade_counts = {}
 
-# Write your code to count occurrences
-#Question 5: Looping Over a Dictionary
-#You are given a dictionary that contains information about different countries and their populations in millions.
+for grade in grades:
+    if grade in grade_counts:
+        grade_counts[grade] += 1
+    else:
+        grade_counts[grade] = 1
 
-countries = {
-    "Canada": 38,
-    "Brazil": 212,
-    "India": 1391,
-    "Germany": 83,
-    "Japan": 126
-}
+# Print results
+for grade, count in grade_counts.items():
+    print(f"Grade {grade} appears {count} time(s)")
 
-#Write a program that loops over the dictionary and prints the name of each country and its population. If the population is over 100 million, print a message saying the country is "heavily populated."
 
-# Your solution for Question 5
+
+# Sour solution for Question 5
 countries = {
     'Canada': 38,
     'Brazil': 212,
@@ -50,4 +55,7 @@ countries = {
     'Japan': 126
 }
 
-# Write your loop here
+for country, population in countries.items():
+    print(f"{country}: {population} million")
+    if population > 100:
+        print(f"{country} is heavily populated")
