@@ -8,6 +8,23 @@ Ensure all keys are lowercase for consistency.
 # input string
 data = " Name: John Doe ; Age : 25;  CITY: New York ; Occupation: Software Engineer "
 
+# remove leading/trailing spaces
+data = data.strip()
+
+# split into key-value pairs
+pairs = data.split(";")
+
+# build dictionary
+result = {}
+for pair in pairs:
+    if ":" in pair:  # avoid empty strings
+        key, value = pair.split(":", 1)  # split only at the first colon
+        key = key.strip().lower()        # clean and lowercase key
+        value = value.strip()            # clean value
+        result[key] = value
+
+print(result)
+
 # expected output
 {
   'name': 'John Doe',
@@ -25,6 +42,25 @@ Store all individual dictionaries in a list.
 # input
 data = "Name: Alice, Age: 30, City: Los Angeles | Name: Bob, Age: 25, City: Chicago | Name: Charlie , Age: 35, City: New York"
 
+# split people by '|'
+people = data.split("|")
+
+result = []
+
+for person in people:
+    attributes = person.split(",")  # split attributes
+    person_dict = {}
+    
+    for attr in attributes:
+        if ":" in attr:
+            key, value = attr.split(":", 1)
+            key = key.strip().lower()   # clean & lowercase key
+            value = value.strip()       # clean value
+            person_dict[key] = value
+    result.append(person_dict)
+
+print(result)
+
 # expected output
 [
     {'name': 'Alice', 'age': '30', 'city': 'Los Angeles'},
@@ -40,6 +76,34 @@ Store each product's data in a dictionary, and put all dictionaries in a list.
 
 # messy data string
 data = "product_name: Laptop, price = $999, brand - Dell ; product_name: Smartphone, price: $599 , brand = Samsung ; product_name - Tablet , price=299,brand : Apple"
+
+# split products by ';'
+products = data.split(";")
+
+result = []
+
+for product in products:
+    product = product.strip()
+    if not product:
+        continue
+    
+    # split attributes by ','
+    attributes = product.split(",")
+    product_dict = {}
+    
+    for attr in attributes:
+        # normalize separators to ':'
+        attr = re.sub(r"[:=\-]", ":", attr)
+        
+        if ":" in attr:
+            key, value = attr.split(":", 1)
+            key = key.strip().lower()
+            value = value.strip()
+            product_dict[key] = value
+    
+    result.append(product_dict)
+
+print(result)
 
 # expected output
 [
@@ -57,6 +121,49 @@ Store the dictionaries for each employee in a list.
 
 # messy data string
 data = "employee_name: Sarah, department: HR, roles: recruiter, trainer | employee_name: Mike , department: Engineering , roles: developer, team lead | employee_name: Alice , department: HR , roles: recruiter"
+
+# split by employees
+employees = data.split("|")
+result = []
+
+for emp in employees:
+    emp = emp.strip()
+    if not emp:
+        continue
+    
+    attributes = emp.split(",")
+    emp_dict = {}
+    
+    # join back roles in case of extra commas
+    cleaned_attrs = []
+    temp = []
+    for attr in attributes:
+        if "roles" in attr:
+            temp.append(attr)
+        elif temp:
+            temp.append(attr)
+            cleaned_attrs.append(",".join(temp))
+            temp = []
+        else:
+            cleaned_attrs.append(attr)
+    if temp:
+        cleaned_attrs.append(",".join(temp))
+
+    for attr in cleaned_attrs:
+        if ":" in attr:
+            key, value = attr.split(":", 1)
+            key = key.strip().lower()
+            value = value.strip()
+            
+            # special handling for roles
+            if key == "roles":
+                value = [role.strip() for role in value.split(",")]
+            
+            emp_dict[key] = value
+    
+    result.append(emp_dict)
+
+print(result)
 
 # expected output
 [
@@ -87,6 +194,37 @@ Store all device dictionaries in a list.
 # messy data string
 data = "device_id: 001, temp: 72, humidity: 45 | device_id: 002, temp: N/A, humidity: 50 | device_id: 003, temp: 68, humidity: N/A"
 
+devices = data.split("|")
+result = []
+
+for dev in devices:
+    dev = dev.strip()
+    if not dev:
+        continue
+    
+    attributes = dev.split(",")
+    dev_dict = {}
+    
+    for attr in attributes:
+        if ":" in attr:
+            key, value = attr.split(":", 1)
+            key = key.strip().lower()
+            value = value.strip()
+            
+            # handle N/A
+            if value.upper() == "N/A":
+                value = None
+            else:
+                # try converting to int if numeric
+                if value.isdigit():
+                    value = int(value)
+            
+            dev_dict[key] = value
+    
+    result.append(dev_dict)
+
+print(result)
+
 # expected output
 [
     {'device_id': '001', 'temp': 72, 'humidity': 45},
@@ -103,6 +241,39 @@ Organize the cleaned data into a list of dictionaries, including all expected ke
 
 # messy data string
 data = "transaction_id:001, customer_name: Alice, item=Laptop, price: $999; transaction_id=002, customer_name: Bob, item - Smartphone, price= $599; transaction_id:003, item=Tablet, price:299, discount-10%; transaction_id=004, customer_name=Charlie, item: Headphones, discount=5%"
+
+# expected keys
+expected_keys = ["transaction_id", "customer_name", "item", "price", "discount"]
+
+# split into transactions
+transactions = data.split(";")
+result = []
+
+for txn in transactions:
+    txn = txn.strip()
+    if not txn:
+        continue
+
+    # split into attributes
+    attributes = txn.split(",")
+
+    txn_dict = {key: None for key in expected_keys}  # initialize with None
+    
+    for attr in attributes:
+        # normalize separators to ":"
+        attr = re.sub(r"[:=\-]", ":", attr)
+        
+        if ":" in attr:
+            key, value = attr.split(":", 1)
+            key = key.strip().lower()
+            value = value.strip()
+            
+            if key in txn_dict:
+                txn_dict[key] = value
+    
+    result.append(txn_dict)
+
+print(result)
 
 # expected output
 [
