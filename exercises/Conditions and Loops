@@ -9,6 +9,7 @@ else:
     print(f"{x} is less than 10")
 
 
+
 # Solution for Question 2
 numbers = [10, 21, 32, 43, 54]
 
@@ -17,6 +18,8 @@ for num in numbers:
         print(f"{num} is even")
     else:
         print(f"{num} is odd")
+
+
 
 # Solution for Question 3
 sentence = 'Python is fun and powerful'
@@ -27,6 +30,7 @@ elif "boring" in sentence:
     print("The sentence contains the word 'boring'")
 else:
     print("The sentence does not contain the words 'fun' or 'boring'")
+
 
 
 # Solution for Question 4
@@ -46,7 +50,8 @@ for grade, count in grade_counts.items():
 
 
 
-# Sour solution for Question 5
+
+# Solution for Question 5
 countries = {
     'Canada': 38,
     'Brazil': 212,

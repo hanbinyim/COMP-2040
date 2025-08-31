@@ -1,6 +1,3 @@
-# Task: Refactor the code by creating functions to avoid repetition.
-# Think about creating separate functions for calculating the area of a rectangle and a circle.
-
 # Calculating area of rectangles
 length1 = 10
 width1 = 5
@@ -46,8 +43,7 @@ print("Area of first circle:", area_circle1)
 print("Area of second circle:", area_circle2)
 
 
-# Task: Identify the repeating logic and refactor the code to use a function that checks 
-# if a number is odd or even, and applies that function to any list of numbers.
+
 
 # Check for odd or even numbers in list 1
 numbers1 = [10, 15, 22, 29, 30]
@@ -91,8 +87,8 @@ check_odd_even(numbers1)
 check_odd_even(numbers2)
 check_odd_even(numbers3)
 
-# Task: Refactor the code by creating a function that takes the price and discount as arguments and returns the final price. 
-# Use the function to calculate the final prices for each customer, eliminating redundant code.
+
+
 
 # Calculate discount for customer 1
 price1 = 100

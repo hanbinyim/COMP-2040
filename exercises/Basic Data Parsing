@@ -122,6 +122,8 @@ Store the dictionaries for each employee in a list.
 # messy data string
 data = "employee_name: Sarah, department: HR, roles: recruiter, trainer | employee_name: Mike , department: Engineering , roles: developer, team lead | employee_name: Alice , department: HR , roles: recruiter"
 
+import re
+
 # split by employees
 employees = data.split("|")
 result = []
@@ -241,6 +243,8 @@ Organize the cleaned data into a list of dictionaries, including all expected ke
 
 # messy data string
 data = "transaction_id:001, customer_name: Alice, item=Laptop, price: $999; transaction_id=002, customer_name: Bob, item - Smartphone, price= $599; transaction_id:003, item=Tablet, price:299, discount-10%; transaction_id=004, customer_name=Charlie, item: Headphones, discount=5%"
+
+import re
 
 # expected keys
 expected_keys = ["transaction_id", "customer_name", "item", "price", "discount"]
